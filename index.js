@@ -6,14 +6,14 @@ $(".input").on("submit", function(e){
   console.log(location)
   $(".input-location").val(""); 
 
-  const key = '24c01728b5644d15972104541242910'
+  //your key can get on the weatherapi.com which is free and fairly easy
+  const key = 'input your api key'
 
   fetch(`http://api.weatherapi.com/v1/current.json?key=${key}&q=${location}`)
     .then((resolved) => {
       return resolved.json()
     })
     .then((data) => {
-      console.log(data.location.region)
       $(".location").text(data.location.region)
       $(".date").text(data.location.localtime)
       $(".temperature").text(data.current.temp_c + "°C")
